@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Frogmi Stores</string>
+    <string name="loading_data">Cargando Stores</string>
+    <string name="network_error">No tienes conexión a internet</string>
+    <string name="retry_action">Reintentar</string>
+    <string name="there_are_no_more_records">No hay más registros</string>
+    <string name="api_exception">Código: %1$s \nMesaje: %2$s</string>
+</resources>
