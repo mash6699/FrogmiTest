@@ -1,6 +1,7 @@
 package com.mash.frogmi.test
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.mash.frogmi.domain.model.StoreResponse
 import com.mash.frogmi.domain.model.api.APIStoreResponse
 import com.mash.frogmi.domain.model.api.LinkResponse
 import com.mash.frogmi.domain.model.api.MetaResponse
@@ -67,12 +68,12 @@ class HomeViewModelTest {
     @Test
     fun `when fetchStores is successful`() = runBlocking {
         //given
-        val storeResponseMock: APIStoreResponse = mockk(relaxed = true)
+        val storeResponseMock: StoreResponse = mockk(relaxed = true)
         coEvery { repository.getStore(1) } returns
                 BaseResult.Success(storeResponseMock)
 
         //when
-        viewModel.getStore()
+        viewModel.fetchStores()
 
         //then
         assertFalse(viewModel.viewState.value is HomeUiState.Error)
@@ -85,7 +86,7 @@ class HomeViewModelTest {
                 BaseResult.Error(ApiException(500, "Internal Server Error"))
 
         //when
-        viewModel.getStore()
+        viewModel.fetchStores()
 
         //then
         //assert(viewModel.uiState .value == "Error: Internal Server Error")

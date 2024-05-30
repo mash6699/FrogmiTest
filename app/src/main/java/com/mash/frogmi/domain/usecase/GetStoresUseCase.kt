@@ -43,7 +43,6 @@ class GetStoresUseCase @Inject constructor(private val repository: StoreReposito
                                 nextKey = if (result.data.stores.isEmpty()) null else page + 1
                             )
                         }
-
                         is BaseResult.Error -> {
                             return LoadResult.Error(Throwable(result.exception.message))
                         }

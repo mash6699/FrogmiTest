@@ -48,7 +48,7 @@ class GetStoresUseCaseTest {
         //whenever(useCase.getItemsPager(1)).thenReturn(flowOf(mockResponse) )
         //whenever(repository.getStore(20)  ).thenReturn(flowOf(mockResponse))
 
-        useCase.getItemsPager(1)
+        useCase.getStoresWithPager(1)
 
        // assert(result is BaseResult.Success && result.data == mockData)
     }
