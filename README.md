@@ -1,4 +1,3 @@
-=======
 # FrogmiTest
 Mobile challenge
 

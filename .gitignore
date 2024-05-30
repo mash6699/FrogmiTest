@@ -47,7 +47,7 @@ google-services.json
 .cache
 .externalNativeBuild
 .cxx
-=======
+
 # Gradle files
 .gradle/
 build/
