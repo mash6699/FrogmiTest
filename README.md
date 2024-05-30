@@ -1,6 +1,7 @@
+=======
 # FrogmiTest
 Mobile challenge
-=======
+
 ● El Código debe estar hecho en Kotlin.
 ● Una UI simple que despliegue la información arriba descrita en cada celda.
 ● Layout de la app (code), organización de las clases, class naming, convenciones, etc.
