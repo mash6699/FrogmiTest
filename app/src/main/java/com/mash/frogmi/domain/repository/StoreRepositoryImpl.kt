@@ -1,7 +1,7 @@
 package com.mash.frogmi.domain.repository
 
 import com.mash.frogmi.R
-import com.mash.frogmi.StringResourceProvider
+import com.mash.frogmi.util.StringResourceProvider
 import com.mash.frogmi.domain.mapper.toStore
 import com.mash.frogmi.domain.model.StoreResponse
 import com.mash.frogmi.domain.model.base.BaseResult
