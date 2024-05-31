@@ -22,7 +22,7 @@ Desarrollar una aplicación móvil en Android que permita obtener de un datasour
 ## Acerca del la app
 
 <div align="center">
-  <video src="https://github.com/mash6699/FrogmiTest/assets/11529233/acf2f3f4-7210-4b47-bfb5-231d1065e444" width="400" />
+  <video src="https://github.com/mash6699/FrogmiTest/assets/11529233/6f6e115f-802f-45c4-aa31-928b38706169" width="400" />
 </div>
 
 ### Importar el proyecto a android studio
@@ -47,14 +47,14 @@ Agregar los tokens de autorización de los headers dentro del archivo *gradle.pr
 Al ejecutar la aplicación si no cuenta con los tokens de acceso, puede mostrar el mensaje siguiente:
 
 <div align="center">
-<img width="330" alt="Screenshot 2024-05-30 at 10 07 49 a m" src="https://github.com/mash6699/FrogmiTest/assets/11529233/01f5b1c4-f000-44b6-b836-4739ca9c7cbd">
+<img width="338" alt="Screenshot 2024-05-30 at 9 18 41 p m" src="https://github.com/mash6699/FrogmiTest/assets/11529233/13526287-acf3-47b8-a60e-cc170db246c6">
 </div>
 
 ### Run app
 
 Una vez importado el proyecto, es necesario realizar el sync de gradle para descargar las dependencias y hacer click en la opción *Run 'app'*
 <div align="center">
-<img width="342" alt="Screenshot 2024-05-30 at 10 08 36 a m" src="https://github.com/mash6699/FrogmiTest/assets/11529233/4d50a002-ced4-4ea1-bc4d-558ad6b77ff3">
+<img width="345" alt="Screenshot 2024-05-30 at 9 09 49 p m" src="https://github.com/mash6699/FrogmiTest/assets/11529233/a71ef954-a1c3-4fcb-bdfb-14184e4d491d">
 </div>
 
 
