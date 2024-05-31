@@ -13,8 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mash.frogmi.R
@@ -58,7 +61,7 @@ fun ErrorApiExceptionScreen(
     modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = modifier.padding(8.dp)
+        modifier = modifier.padding(8.dp).semantics { testTag = "errorComponent" }
     ) {
         Card {
             Column(
@@ -67,16 +70,16 @@ fun ErrorApiExceptionScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Image(
-                    modifier = modifier.size(125.dp),
+                    modifier = modifier.size(125.dp).testTag("imageError"),
                     painter = painterResource(id = R.drawable.ic_error),
                     contentDescription = "Image Error",
                     contentScale = ContentScale.Fit,
                 )
                 Text(
                     text = stringResource(id = R.string.api_exception, exception.code, exception.message ?: "N/A"),
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.padding(16.dp).testTag("textError")
                 )
-                Button(onClick = retryAction) {
+                Button(onClick = retryAction, modifier = modifier.testTag("buttonError")) {
                     Text(stringResource(id = R.string.retry_action))
                 }
             }
