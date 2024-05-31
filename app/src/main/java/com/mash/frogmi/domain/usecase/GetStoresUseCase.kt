@@ -22,12 +22,12 @@ class GetStoresUseCase @Inject constructor(private val repository: StoreReposito
 
     fun getStoresWithPager(page: Int): Pager<Int, Store> {
         return Pager(
-            config = PagingConfig(pageSize = page, enablePlaceholders = true),
+            config = PagingConfig(pageSize = page),
             pagingSourceFactory = { getItemsPagingSource() }
         )
     }
 
-    private fun getItemsPagingSource(): PagingSource<Int, Store> {
+    fun getItemsPagingSource(): PagingSource<Int, Store> {
         return object : PagingSource<Int, Store>() {
             override fun getRefreshKey(state: PagingState<Int, Store>): Int? =
                 state.anchorPosition
@@ -43,7 +43,6 @@ class GetStoresUseCase @Inject constructor(private val repository: StoreReposito
                                 nextKey = if (result.data.stores.isEmpty()) null else page + 1
                             )
                         }
-
                         is BaseResult.Error -> {
                             return LoadResult.Error(Throwable(result.exception.message))
                         }

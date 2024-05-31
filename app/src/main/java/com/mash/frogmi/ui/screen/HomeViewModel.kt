@@ -26,11 +26,6 @@ class HomeViewModel @Inject constructor(private val getStoresUseCase: GetStoresU
     var uiState: HomeUiState by mutableStateOf(HomeUiState.Idle)
         private set
 
-    private val _viewState: MutableStateFlow<HomeUiState> = MutableStateFlow(
-        HomeUiState.Idle
-    )
-    val viewState: StateFlow<HomeUiState> = _viewState
-
     private var nextLink: String? = null
 
     private val _items = MutableStateFlow<List<Store>>(emptyList())

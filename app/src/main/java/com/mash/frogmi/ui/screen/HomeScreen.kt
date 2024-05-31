@@ -25,8 +25,11 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mash.frogmi.R
@@ -72,8 +75,8 @@ fun HomeScreen(
 
 @Composable
 fun HomeScrollLazyColumn(
-    items: List<Store>,
-    uiState: HomeUiState,
+    items: List<Store> = emptyList(),
+    uiState: HomeUiState = HomeUiState.Idle,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     onLoadMore: () -> Unit,
@@ -110,7 +113,7 @@ fun HomeScrollLazyColumn(
                 when (uiState) {
                     is HomeUiState.Idle -> {
                         Column(
-                            modifier = Modifier.fillParentMaxSize(),
+                            modifier = Modifier.fillParentMaxSize().semantics { testTag = "animationLoader" },
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center,
                         ) {
@@ -120,7 +123,7 @@ fun HomeScrollLazyColumn(
 
                     is HomeUiState.Downloading -> {
                         Column(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().semantics { testTag = "circularLoader" },
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center,
                         ) {
@@ -137,32 +140,41 @@ fun HomeScrollLazyColumn(
                     }
 
                     is HomeUiState.Finish -> {
-                        Box(
-                            modifier = modifier.padding(8.dp)
-                        ) {
-                            Card {
-                                Column(
-                                    modifier = Modifier
-                                        .padding(16.dp)
-                                        .fillMaxWidth(),
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                    verticalArrangement = Arrangement.Center,
-                                ) {
-                                    Image(
-                                        modifier = modifier.size(65.dp),
-                                        painter = painterResource(id = R.drawable.ic_black_cat),
-                                        contentDescription = "Image not found",
-                                        contentScale = ContentScale.Fit,
-                                    )
-                                    Text(stringResource(id = R.string.there_are_no_more_records))
-                                }
-                            }
-                        }
+                      FinishComponent(modifier = modifier)
                     }
 
                     else -> {}
 
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun FinishComponent(modifier: Modifier) {
+    Box(
+        modifier = modifier
+            .padding(8.dp)
+            .semantics { testTag = "finishComponent" }
+    ) {
+        Card {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
+                Image(
+                    modifier = modifier
+                        .size(65.dp)
+                        .testTag("imageFinish"),
+                    painter = painterResource(id = R.drawable.ic_black_cat),
+                    contentDescription = "Image not found",
+                    contentScale = ContentScale.Fit,
+                )
+                Text(stringResource(id = R.string.there_are_no_more_records), modifier.testTag("textFinish"))
             }
         }
     }

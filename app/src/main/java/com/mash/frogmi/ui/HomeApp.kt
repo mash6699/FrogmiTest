@@ -34,7 +34,7 @@ fun HomeApp(viewModel: HomeViewModel = hiltViewModel()) {
     val lazyPagingItems = viewModel.fetchStoresWithPager().collectAsLazyPagingItems()
 
     Scaffold(topBar = { StoreTopAppBar(scrollBehavior = scrollBehavior)}) {
-        val tabs = listOf("Paging", "Link next")
+        val tabs = listOf("With next", "With paging")
         var tabIndex by remember { mutableStateOf(0) }
         Column(modifier = Modifier.padding(it)) {
             TabRow(selectedTabIndex = tabIndex, contentColor = MaterialTheme.colorScheme.primary) {
@@ -46,8 +46,8 @@ fun HomeApp(viewModel: HomeViewModel = hiltViewModel()) {
                 }
             }
             when (tabIndex) {
-                0 -> HomePagingScreen(lazyPagingItems = lazyPagingItems)
-                1 -> HomeScreen(items = items, uiState = viewModel.uiState, viewModel = viewModel)
+                0 -> HomeScreen(items = items, uiState = viewModel.uiState, viewModel = viewModel)
+                1 -> HomePagingScreen(lazyPagingItems = lazyPagingItems)
             }
         }
     }
