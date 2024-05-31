@@ -2,8 +2,8 @@ package com.mash.frogmi.di
 
 import android.content.Context
 import com.mash.frogmi.BuildConfig
-import com.mash.frogmi.StringResourceProvider
-import com.mash.frogmi.StringResourceProviderImpl
+import com.mash.frogmi.util.StringResourceProvider
+import com.mash.frogmi.util.StringResourceProviderImpl
 import com.mash.frogmi.domain.model.interceptor.ErrorInterceptor
 import com.mash.frogmi.domain.model.interceptor.HeaderInterceptor
 import com.mash.frogmi.domain.repository.StoreRepositoryImpl
@@ -23,7 +23,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module

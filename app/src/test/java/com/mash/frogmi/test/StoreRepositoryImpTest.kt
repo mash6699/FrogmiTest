@@ -1,7 +1,7 @@
 package com.mash.frogmi.test
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mash.frogmi.StringResourceProvider
+import com.mash.frogmi.util.StringResourceProvider
 import com.mash.frogmi.domain.mapper.toStore
 import com.mash.frogmi.domain.model.StoreResponse
 import com.mash.frogmi.domain.model.api.APIStoreResponse
@@ -12,7 +12,6 @@ import com.mash.frogmi.network.APIService
 import com.mash.frogmi.util.NetworkStatus
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.mockk
 import io.mockk.spyk

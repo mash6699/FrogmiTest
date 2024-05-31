@@ -1,4 +1,4 @@
-package com.mash.frogmi
+package com.mash.frogmi.util
 
 import android.content.res.Resources
 import androidx.annotation.StringRes
